@@ -5,7 +5,7 @@
         "league",
         "kinvey",
         "sdk",
-        "php",
+        "php"
     ],
     "homepage": "https://github.com/php-loep/:package_name",
     "license": "MIT",
