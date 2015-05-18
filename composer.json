@@ -1,5 +1,5 @@
 {
-    "name": "kinvey-php",
+    "name": "izie/kinvey-php",
     "description": "Kinvey PHP SDK",
     "keywords": [
         "league",
@@ -25,12 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Kinvey\\": "src"
+            "Izie\\Kinvey\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Kinvey\\Test\\": "tests"
+            "Izie\\Kinvey\\Test\\": "tests"
         }
     },
     "extra": {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Kinvey;
+namespace Izie\Kinvey;
 
 class Connect
 {
