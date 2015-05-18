@@ -1,6 +1,6 @@
 <?php
 
-namespace League\Kinvey;
+namespace Kinvey;
 
 class Query
 {

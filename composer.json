@@ -1,5 +1,5 @@
 {
-    "name": "league/kinvey-php",
+    "name": "kinvey-php",
     "description": "Kinvey PHP SDK",
     "keywords": [
         "league",
@@ -7,7 +7,7 @@
         "sdk",
         "php"
     ],
-    "homepage": "https://github.com/php-loep/:package_name",
+    "homepage": "https://github.com/italoqueiroz/kinvey-php",
     "license": "MIT",
     "authors": [
         {
@@ -25,12 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            "League\\Kinvey\\": "src"
+            "Kinvey\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "League\\Kinvey\\Test\\": "tests"
+            "Kinvey\\Test\\": "tests"
         }
     },
     "extra": {
