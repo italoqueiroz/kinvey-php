@@ -39,7 +39,7 @@ Please see [CONTRIBUTING](https://github.com/thephpleague/:package_name/blob/mas
 ## Credits
 
 - [Ítalo Queiroz](https://github.com/italoqueiroz)
-- [All Contributors](https://github.com/thephpleague/:package_name/contributors)
+- [All Contributors](https://github.com/italoqueiroz/kinvey-php/graphs/contributors)
 
 ## License
 
