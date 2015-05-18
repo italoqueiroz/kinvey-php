@@ -1,4 +1,4 @@
-# League Skeleton
+# League Kinvey PHP
 
 [![Latest Version](https://img.shields.io/github/release/thephpleague/skeleton.svg?style=flat-square)](https://github.com/thephpleague/skeleton/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
@@ -17,14 +17,13 @@ PSRs you support to avoid any confusion with users and contributors.
 Via Composer
 
 ``` bash
-$ composer require league/skeleton
+$ composer require league/kinvey-php
 ```
 
 ## Usage
 
 ``` php
-$skeleton = new League\Skeleton();
-echo $skeleton->echoPhrase('Hello, League!');
+\League\Kinvey\Kinvey::initialize('<app_id>', '<app_secret>', '<master_secret>');
 ```
 
 ## Testing
@@ -39,7 +38,7 @@ Please see [CONTRIBUTING](https://github.com/thephpleague/:package_name/blob/mas
 
 ## Credits
 
-- [:author_name](https://github.com/:author_username)
+- [Ítalo Queiroz](https://github.com/italoqueiroz)
 - [All Contributors](https://github.com/thephpleague/:package_name/contributors)
 
 ## License
