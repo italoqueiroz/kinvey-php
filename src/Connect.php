@@ -106,7 +106,7 @@ class Connect
             $url .= '?'.$query->getQuery();
         }
 
-        // var_dump(urldecode($url), $method);
+//        var_dump(urldecode($url), $method);
         $ch = curl_init($url);
         if (!empty($method)) {
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, mb_strtoupper($method));
@@ -126,7 +126,7 @@ class Connect
     protected function _setData($data)
     {
         if (isset($data)) {
-//            var_dump(json_encode($data));
+            //var_dump(json_encode($data));
             curl_setopt($this->getCurl(), CURLOPT_POSTFIELDS, json_encode($data));
         }
     }
@@ -143,8 +143,8 @@ class Connect
         } else {
             curl_close($this->getCurl());
             $result = json_decode($output);
-            if ($result && $result->error) {
-                // throw new \Exception($result->error.' - '.$result->description);
+            if (is_object($result) && property_exists($result, 'error')) {
+                throw new \Exception($result->error.' - '.$result->description . ': (DEBUG) - ' . $result->debug);
             }
             return $result;
         }

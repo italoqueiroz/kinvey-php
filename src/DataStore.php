@@ -60,8 +60,16 @@ class DataStore
         return $this->getConnect()->send($this->getConsole(), null, $collection, null, $query);
     }
 
-    public function save($collection, array $data)
+    public function save($collection, $data)
     {
+        if (is_object($data)) {
+            $data = (array) $data;
+        }
+
+        if (!is_array($data)) {
+            throw new Excepetion('Data must be of the type array');
+        }
+
         if (!empty($data['_id'])) {
             return $this->update($collection, $data);
         }
