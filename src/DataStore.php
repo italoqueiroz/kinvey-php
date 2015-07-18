@@ -67,7 +67,7 @@ class DataStore
         }
 
         if (!is_array($data)) {
-            throw new Excepetion('Data must be of the type array');
+            throw new Exception('Data must be of the type array');
         }
 
         if (!empty($data['_id'])) {
