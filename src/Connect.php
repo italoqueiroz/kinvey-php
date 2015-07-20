@@ -94,9 +94,9 @@ class Connect
     protected function _prepareCurl($console, $method, $collection, $id = null, $query = null)
     {
         $url = $this->getKinveyUrl()
-             . $console
-             . Kinvey::getAppId()
-             . '/' . $collection;
+            . $console
+            . Kinvey::getAppId()
+            . '/' . $collection;
 
         if (!empty($id)) {
             $url .= '/'.$id;
@@ -144,7 +144,14 @@ class Connect
             curl_close($this->getCurl());
             $result = json_decode($output);
             if (is_object($result) && property_exists($result, 'error')) {
-                throw new \Exception($result->error.' - '.$result->description . ': (DEBUG) - ' . $result->debug);
+                $exceptionMessage = $result->error;
+                if(isset($result->description)){
+                    $exceptionMessage .= ' - '.$result->description;
+                }
+                if(isset($result->debug)){
+                    $exceptionMessage .= ': (DEBUG) - ' . $result->debug;
+                }
+                throw new \Exception($exceptionMessage);
             }
             return $result;
         }
