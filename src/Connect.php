@@ -144,14 +144,14 @@ class Connect
             curl_close($this->getCurl());
             $result = json_decode($output);
             if (is_object($result) && property_exists($result, 'error')) {
-                if('KinveyInternalErrorRetry' === $result->error){
+                if($result->error === 'KinveyInternalErrorRetry'){
                     return $this->send($console, $method, $collection, $id, $query, $data);
                 }
                 $exceptionMessage = $result->error;
-                if(isset($result->description)){
+                if(property_exists($result, 'description')){
                     $exceptionMessage .= ' - '.$result->description;
                 }
-                if(isset($result->debug)){
+                if(property_exists($result, 'debug')){
                     $exceptionMessage .= ': (DEBUG) - ' . $result->debug;
                 }
                 throw new \Exception($exceptionMessage);
