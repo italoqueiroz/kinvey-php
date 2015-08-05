@@ -61,14 +61,14 @@ class User
         return $this->getConnect()->send($this->getConsole(), null, null, null, $query);
     }
 
-    public function save($collection, $data)
+    public function save($data)
     {
-
+        return $this->update($data);
     }
 
-    public function update($collection, $data)
+    public function update($data)
     {
-
+        return $this->getConnect()->send($this->getConsole(), 'put', $data['_id'], null, null, $data);
     }
 
     public function destroy($collection, $id)
