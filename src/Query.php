@@ -106,7 +106,7 @@ class Query
     public function notEqualTo($field, $value)
     {
         $data = array('$ne' => $value);
-        $this->addQueryFilter(array($field => "{\$ne: $value}"));
+        $this->addQueryFilter(array($field => json_encode($data)));
         return $this;
     }
 
