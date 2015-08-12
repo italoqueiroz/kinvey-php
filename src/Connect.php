@@ -17,7 +17,7 @@ class Connect
 
     public function __construct()
     {
-        $authorization = Kinvey::getAppId().':';
+        $authorization = Kinvey::getAppId() . ':';
         if (Kinvey::getMasterSecret()) {
             $authorization .= Kinvey::getMasterSecret();
         } else {
@@ -99,11 +99,11 @@ class Connect
             . '/' . $collection;
 
         if (!empty($id)) {
-            $url .= '/'.$id;
+            $url .= '/' . $id;
         }
 
         if (!empty($query)) {
-            $url .= '?'.$query->getQuery();
+            $url .= '?' . $query->getQuery();
         }
 
 //        var_dump(urldecode($url), $method);
@@ -116,7 +116,7 @@ class Connect
                 $this->setCurlHttpHead($curlHttpHead);
             }
         }
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Basic '.$this->getAuthorization()) + $this->getCurlHttpHead());
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Basic ' . $this->getAuthorization()) + $this->getCurlHttpHead());
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         $this->setCurl($ch);
@@ -144,15 +144,15 @@ class Connect
             curl_close($this->getCurl());
             $result = json_decode($output);
             if (is_object($result) && property_exists($result, 'error')) {
-                if($result->error === 'KinveyInternalErrorRetry'){
-                    return $this->send($console, $method, $collection, $id, $query, $data);
-                }
                 $exceptionMessage = $result->error;
-                if(property_exists($result, 'description')){
-                    $exceptionMessage .= ' - '.$result->description;
+                if (property_exists($result, 'description')) {
+                    $exceptionMessage .= ' - ' . $result->description;
                 }
-                if(property_exists($result, 'debug')){
+                if (property_exists($result, 'debug')) {
                     $exceptionMessage .= ': (DEBUG) - ' . $result->debug;
+                }
+                if ($result->error === 'KinveyInternalErrorRetry' || strpos($exceptionMessage, 'Please retry your request') > -1) {
+                    return $this->send($console, $method, $collection, $id, $query, $data);
                 }
                 throw new \Exception($exceptionMessage);
             }
