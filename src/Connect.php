@@ -8,11 +8,10 @@ class Connect
     protected $_authorization;
     protected $_kinveyUrl = 'https://baas.kinvey.com';
     protected $_curlHttpHead = array(
-        'X-Kinvey-API-Version: 3',
         'Accept: application/json',
-        'Content-Type: application/json',
+        'Content-Type: application/json; charset=UTF-8',
+        'X-Kinvey-API-Version: 3',
         'X-Kinvey-ResponseWrapper true',
-        'Content-Type: text/xml; charset=utf-8'
     );
 
     public function __construct()
