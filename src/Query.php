@@ -117,6 +117,20 @@ class Query
         return $this;
     }
 
+    public function notIn($field, $value)
+    {
+        $data = array('$nin' => $value?true:false);
+        $this->addQueryFilter(array($field => json_encode($data)));
+        return $this;
+    }
+
+    public function in($field, $value)
+    {
+        $data = array('$in' => $value?true:false);
+        $this->addQueryFilter(array($field => json_encode($data)));
+        return $this;
+    }
+
     public function mod($attribute, $value)
     {
         $this->_setOperatorValueQuery('mod', $attribute, $value);
