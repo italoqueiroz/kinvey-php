@@ -119,14 +119,14 @@ class Query
 
     public function notIn($field, $value)
     {
-        $data = array('$nin' => $value?true:false);
+        $data = array('$nin' => $value);
         $this->addQueryFilter(array($field => json_encode($data)));
         return $this;
     }
 
     public function in($field, $value)
     {
-        $data = array('$in' => $value?true:false);
+        $data = array('$in' => $value);
         $this->addQueryFilter(array($field => json_encode($data)));
         return $this;
     }
