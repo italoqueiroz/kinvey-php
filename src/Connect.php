@@ -151,7 +151,8 @@ class Connect
                     $exceptionMessage .= ': (DEBUG) - ' . $result->debug;
                 }
                 if ($result->error === 'KinveyInternalErrorRetry' || strpos($exceptionMessage, 'Please retry your request') > -1) {
-                    return $this->send($console, $method, $collection, $id, $query, $data);
+                    var_dump(json_encode($result));
+//                    return $this->send($console, $method, $collection, $id, $query, $data);
                 }
                 throw new \Exception($exceptionMessage);
             }
