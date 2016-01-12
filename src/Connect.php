@@ -92,6 +92,10 @@ class Connect
 
     protected function _prepareCurl($console, $method, $collection, $id = null, $query = null)
     {
+        if (getenv('PREFFIX_COLLECTION') && 'production' !== getenv('APP_ENV')) {
+            $collection = getenv('PREFFIX_COLLECTION').$collection;
+        }
+
         $url = $this->getKinveyUrl()
             . $console
             . Kinvey::getAppId()
